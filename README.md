@@ -1,4 +1,41 @@
-﻿### FINAL PRESENTATION - ConsoleRPG EF Core Application
+﻿
+Ben Jung  - Dotnet Database Class Final Project
+I believe that it completed all of the grade “B” level requirements and worked to structure the database and added code to assist with game-play.
+
+I Really concentrated on the “game-play” aspect of assignment and tried to structure the playability experience like I remember the early video games of my childhood.  
+My thought was to create a single player walk through maze type game where the player would go from room to room finding items,
+fighting and looting monsters acquiring coins to use on purchases, while searching for the treasure.
+I also tried to write code that would consider bad inputs or duplication.  
+
+I spent a lot (probably too much) time on trying to restructure the template around my idea and using migrations and seeding to trying to accomplish that.  
+I broke it many times but was able to work through the corrections.  
+What I learned doing that became crucial as I ran into an error dropping and recreating the database less than 2 hours before the final class and was able to fix it.
+
+Included Code:   
+•	Multiple Menus to progress through setup and playing game – 1 dynamic menu base on available choices
+•	Used Separate repositories and services for abilities, players, and Rooms
+	o	Added methods in services and repositories for future functionality
+•	Updated player, monsters and abilities via migrations 
+•	Seeded abilities and players via migrations and scripts
+•	Wrote code to prevent input errors and create duplicate names in the database
+•	Created an in-game method to upgrade abilities as you progress (with future thought to use coins to purchase
+
+Thoughts on Course
+I enjoyed the course and learned a lot throughout the semester.  
+It shows that you are passionate about the content and giving students of varying skill something to learn. 
+I especially liked learning how the database integrates with the software and how to manage the data.
+As someone with less general IT knowledge I did struggle a bit in this course and am appreciative of your efforts 
+to help with feedback and the 1 on 1 session we had.  
+I really liked the video thanksgiving week, as it was very structured, to the point and provided a great resource to reference.  
+I think adding some of that to the weekly classes as a preview or summary section, could be beneficial for some. 
+
+Thanks again for everything and I hope you enjoy the winter break!
+
+
+
+
+
+### FINAL PRESENTATION - ConsoleRPG EF Core Application
 
 #### Basic Required functionality:
 - **Add a new Character to the database**

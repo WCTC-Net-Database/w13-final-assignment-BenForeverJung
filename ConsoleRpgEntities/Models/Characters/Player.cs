@@ -5,18 +5,23 @@ using ConsoleRpgEntities.Models.Rooms;
 
 namespace ConsoleRpgEntities.Models.Characters
 {
-    public class Player : IPlayer, ITargetable
+    public class Player : ITargetable
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Experience { get; set; }
+        public int Coins { get; set; }
         public int Health { get; set; }
+        public int? ActiveAbility { get; set;}
+        //public int? Weapon { get; set; }
+        //public int? Armor { get; set; }
+        //public int? Potion { get; set;}
+
 
         // Foreign key
         public int? EquipmentId { get; set; }
 
         // Navigation properties
-        public virtual Inventory Inventory { get; set; }
+        public virtual ICollection<Item>? Inventory { get; set; }
         public virtual Equipment Equipment { get; set; }
         public virtual Room Room { get; set; }
         public virtual int? RoomId { get; set; }

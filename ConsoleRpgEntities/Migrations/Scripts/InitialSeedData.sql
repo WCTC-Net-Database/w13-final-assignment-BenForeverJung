@@ -1,4 +1,4 @@
-﻿SET IDENTITY_INSERT Players ON;
+﻿ SET IDENTITY_INSERT Players ON;
 INSERT INTO Players (Id, Name, Health, Experience)
 VALUES
     (1, 'Sir Lancelot', 100, 0);
@@ -13,7 +13,7 @@ SET IDENTITY_INSERT Monsters OFF;
 SET IDENTITY_INSERT Abilities ON;
 INSERT INTO Abilities (Id, Name, Description, AbilityType, Damage, Distance)
 VALUES
-    (1, 'Shove', 'Power Shove', 'ShoveAbility', 10, 5);
+    (1, 'Shove', 'Power Shove', 'ShoveAbility', 5, 10);
 SET IDENTITY_INSERT Abilities OFF;
 
 INSERT INTO PlayerAbilities (PlayersId, AbilitiesId)

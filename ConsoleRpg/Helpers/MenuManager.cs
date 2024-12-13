@@ -11,7 +11,7 @@ public class MenuManager
     public bool ShowMainMenu()
     {
         _outputManager.AddLogEntry("Welcome to the RPG Game!");
-        _outputManager.AddLogEntry("1. Start Game");
+        _outputManager.AddLogEntry("1. Enter Game");
         _outputManager.AddLogEntry("2. Exit");
 
         return HandleMainMenuInput();
@@ -25,7 +25,7 @@ public class MenuManager
             switch (input)
             {
                 case "1":
-                    _outputManager.AddLogEntry("Starting game...");
+                    _outputManager.AddLogEntry("Entering game...");
                     return true;
                 case "2":
                     _outputManager.AddLogEntry("Exiting game...");

@@ -2,6 +2,7 @@
 using ConsoleRpg.Services;
 using ConsoleRpgEntities.Data;
 using ConsoleRpgEntities.Helpers;
+using ConsoleRpgEntities.Repositories;
 using ConsoleRpgEntities.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -50,6 +51,13 @@ public static class Startup
         services.AddSingleton<OutputManager>();
         services.AddSingleton<PlayerService>();
         services.AddSingleton<AbilityService>();
+        services.AddSingleton<InventoryService>();
+        services.AddSingleton<RoomService>();
         services.AddSingleton<IOutputService, OutputService>();
+        services.AddTransient<PlayerRepository>();
+        services.AddTransient<EquipmentRepository>();
+        services.AddTransient<AbilityRepository>();
+        services.AddTransient<RoomRepository>();
+
     }
 }

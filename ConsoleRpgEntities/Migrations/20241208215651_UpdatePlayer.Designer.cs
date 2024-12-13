@@ -4,6 +4,7 @@ using ConsoleRpgEntities.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ConsoleRpgEntities.Migrations
 {
     [DbContext(typeof(GameContext))]
-    partial class GameContextModelSnapshot : ModelSnapshot
+    [Migration("20241208215651_UpdatePlayer")]
+    partial class UpdatePlayer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,16 +51,17 @@ namespace ConsoleRpgEntities.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Value")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.ToTable("Abilities", (string)null);
+                    b.ToTable("Abilities");
 
                     b.HasDiscriminator<string>("AbilityType").HasValue("Ability");
                 });
@@ -71,10 +74,7 @@ namespace ConsoleRpgEntities.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("ArmorItemId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Coins")
+                    b.Property<int>("AggressionLevel")
                         .HasColumnType("int");
 
                     b.Property<int>("Health")
@@ -88,26 +88,9 @@ namespace ConsoleRpgEntities.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PotionItemId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("RoomId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("WeaponItemId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("ArmorItemId");
-
-                    b.HasIndex("PotionItemId");
-
-                    b.HasIndex("RoomId");
-
-                    b.HasIndex("WeaponItemId");
-
-                    b.ToTable("Monsters", (string)null);
+                    b.ToTable("Monsters");
 
                     b.HasDiscriminator<string>("MonsterType").HasValue("Monster");
                 });
@@ -119,9 +102,6 @@ namespace ConsoleRpgEntities.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int?>("ActiveAbility")
-                        .HasColumnType("int");
 
                     b.Property<int>("Coins")
                         .HasColumnType("int");
@@ -145,7 +125,7 @@ namespace ConsoleRpgEntities.Migrations
 
                     b.HasIndex("RoomId");
 
-                    b.ToTable("Players", (string)null);
+                    b.ToTable("Players");
                 });
 
             modelBuilder.Entity("ConsoleRpgEntities.Models.Equipments.Equipment", b =>
@@ -168,7 +148,7 @@ namespace ConsoleRpgEntities.Migrations
 
                     b.HasIndex("WeaponId");
 
-                    b.ToTable("Equipments", (string)null);
+                    b.ToTable("Equipments");
                 });
 
             modelBuilder.Entity("ConsoleRpgEntities.Models.Equipments.Item", b =>
@@ -206,7 +186,7 @@ namespace ConsoleRpgEntities.Migrations
 
                     b.HasIndex("PlayerId");
 
-                    b.ToTable("Items", (string)null);
+                    b.ToTable("Items");
                 });
 
             modelBuilder.Entity("ConsoleRpgEntities.Models.Rooms.Room", b =>
@@ -250,10 +230,10 @@ namespace ConsoleRpgEntities.Migrations
 
                     b.HasIndex("WestId");
 
-                    b.ToTable("Rooms", (string)null);
+                    b.ToTable("Rooms");
                 });
 
-            modelBuilder.Entity("ConsoleRpgEntities.Models.Abilities.PlayerAbilities.MeleeAbility", b =>
+            modelBuilder.Entity("ConsoleRpgEntities.Models.Abilities.PlayerAbilities.ShoveAbility", b =>
                 {
                     b.HasBaseType("ConsoleRpgEntities.Models.Abilities.PlayerAbilities.Ability");
 
@@ -289,33 +269,6 @@ namespace ConsoleRpgEntities.Migrations
                         .HasForeignKey("PlayersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("ConsoleRpgEntities.Models.Characters.Monsters.Monster", b =>
-                {
-                    b.HasOne("ConsoleRpgEntities.Models.Equipments.Item", "ArmorItem")
-                        .WithMany()
-                        .HasForeignKey("ArmorItemId");
-
-                    b.HasOne("ConsoleRpgEntities.Models.Equipments.Item", "PotionItem")
-                        .WithMany()
-                        .HasForeignKey("PotionItemId");
-
-                    b.HasOne("ConsoleRpgEntities.Models.Rooms.Room", "Room")
-                        .WithMany()
-                        .HasForeignKey("RoomId");
-
-                    b.HasOne("ConsoleRpgEntities.Models.Equipments.Item", "WeaponItem")
-                        .WithMany()
-                        .HasForeignKey("WeaponItemId");
-
-                    b.Navigation("ArmorItem");
-
-                    b.Navigation("PotionItem");
-
-                    b.Navigation("Room");
-
-                    b.Navigation("WeaponItem");
                 });
 
             modelBuilder.Entity("ConsoleRpgEntities.Models.Characters.Player", b =>

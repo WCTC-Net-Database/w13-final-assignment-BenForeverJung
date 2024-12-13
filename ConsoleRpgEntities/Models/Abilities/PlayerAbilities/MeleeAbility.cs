@@ -1,6 +1,6 @@
 ﻿namespace ConsoleRpgEntities.Models.Abilities.PlayerAbilities
 {
-    public class ShoveAbility : Ability
+    public class MeleeAbility : Ability
     {
         public int Damage { get; set; }
         public int Distance { get; set; }

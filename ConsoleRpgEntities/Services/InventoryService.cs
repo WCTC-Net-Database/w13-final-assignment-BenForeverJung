@@ -1,7 +1,4 @@
-﻿using ConsoleRpgEntities.Models.Attributes;
-using ConsoleRpgEntities.Models.Characters;
-using ConsoleRpgEntities.Models.Abilities.PlayerAbilities;
-using ConsoleRpgEntities.Models.Equipments;
+﻿using ConsoleRpgEntities.Models.Equipments;
 
 
 namespace ConsoleRpgEntities.Services
